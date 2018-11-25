@@ -22,3 +22,7 @@ When running XEL on http://localhost:17876 you will get to the client, a click o
 ```
 DON’T HAVE AN ACCOUNT? CLICK HERE TO CREATE ONE!
 ```
+
+will bring you to the passphrase generator. Afterwards (or with your self created passphrase), you can login to your Account. If you do not have XEL yet, the quickest method is when you already got some virtual Currencie like Bitcoin. You can exchange them via Bittrex or buy your coins on another exchange and transfer them to your wallet.
+
+In the next steps, we use your passphrase to sign and broadcast transactions. Your passphrase can also be seen as your private Key.
