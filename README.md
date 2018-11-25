@@ -68,4 +68,4 @@ This script is creating a sendMoney transaction. As you see we have been changin
 
 The output you see on the page contains various information, the variable feeNQT has been filled in with the correct information, you can check how much the fee is for the transaction you have created. You see the whole transactionJSON you have inserted in JSON format and you receive the transaction transactionBytes. The transactionBytes embeddes all the transaction information you have in the tranasctionJSON.
 
-The above created transaction will not be broadcasted to the network yet, because we set “broadcast”: false in our object. When setting this true the transaction will be broadcasted and will cost you 1 XEL. As you can see, we do not need many variables to create our first transaction.
+The above created transaction will not be broadcasted to the network yet, because we set “broadcast”: false in our object. When setting this true the transaction will be broadcasted and will cost you 0.1 XEL. As you can see, we do not need many variables to create our first transaction.
