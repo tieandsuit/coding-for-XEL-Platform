@@ -26,3 +26,46 @@ DON’T HAVE AN ACCOUNT? CLICK HERE TO CREATE ONE!
 will bring you to the passphrase generator. Afterwards (or with your self created passphrase), you can login to your Account. If you do not have XEL yet, the quickest method is when you already got some virtual Currencie like Bitcoin. You can exchange them via Bittrex or buy your coins on another exchange and transfer them to your wallet.
 
 In the next steps, we use your passphrase to sign and broadcast transactions. Your passphrase can also be seen as your private Key.
+
+# CREATE THE TRANSACTION
+
+With a secure passphrase, we can now look into the code of creating a send-XEL-Transaction. We send out 1 XEL to a recipient, which you see in the code and change it there for another recipient. Insert your passphrase in the following code and run it to create the transaction.
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+<!– Latest compiled and minified CSS –>
+<link rel=”stylesheet” href=”https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css” integrity=”sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7″ crossorigin=”anonymous”>
+
+</head>
+<body>
+<div class=”col-md-12″>
+<h2>Outgoing Transaction JSON</h2>
+
+<div class=”well” style=”word-wrap:break-word;” id=”transactionJSON”></div>
+</div>
+
+<script src=”https://code.jquery.com/jquery-2.2.0.min.js”></script>
+<!– Latest compiled and minified JavaScript –>
+<script src=”https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js” integrity=”sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS” crossorigin=”anonymous”></script>
+<script>
+
+$.post(‘http://localhost:17876/nxt’, {“requestType”: “sendMoney”, “recipient”: “XEL-MAYC-ZZ3Y-YX56-6NH52”, “amountNQT”: “100000000”, “secretPhrase”: “YourPassphrase”, “feeNQT”: “0”, “deadline”: “800”, “broadcast”: false}, function(request) {
+
+var response = JSON.parse(request);
+$(“#transactionJSON”).html(JSON.stringify( response , null, 4));
+
+});
+
+</script>
+</body>
+
+</html>
+```
+
+This script is creating a sendMoney transaction. As you see we have been changing the function used in previous articles $.getJSON to $.post. When creating transactions, it is necessary to switch to POST format instead of GET requests as with the previous functions. For reference to the API details, have a look at http://localhost:17876/test?requestType=sendMoney.
+
+The output you see on the page contains various information, the variable feeNQT has been filled in with the correct information, you can check how much the fee is for the transaction you have created. You see the whole transactionJSON you have inserted in JSON format and you receive the transaction transactionBytes. The transactionBytes embeddes all the transaction information you have in the tranasctionJSON.
+
+The above created transaction will not be broadcasted to the network yet, because we set “broadcast”: false in our object. When setting this true the transaction will be broadcasted and will cost you 1 XEL. As you can see, we do not need many variables to create our first transaction.
