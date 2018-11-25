@@ -1,24 +1,24 @@
 # CODING FOR XEL CRYPTO PLATFORM #1: TRANSACTIONS ON THE XEL BLOCKCHAIN
 
 
-# XEL BLOCKCHAIN TRANSACTIONS
+### XEL BLOCKCHAIN TRANSACTIONS
 The XEL Blockchain is the heart of XEL. Every Transaction ever made is recorded on the Blockchain.
 The Blockchain is a decentralized database, which is saved on your computer.
 To prevent spam, for every transaction you have to pay fees in the native currency, which will be XEL for us using the XEL Blockchain.
 Throughout the article I want to focus on tools you can use while creating Transactions on XEL.
 
-# SEND XEL
+### SEND XEL
 Codewise, creating a transaction on XEL is very similar to reading data from the Blockchain;
 There are some topics we have to cover before creating our first tranasction.
 To create a transaction, we first need a XEL Account and some XEL, in order to pay for Blockchain fees. So, let us login to XEL and create our first account.
 
-# CREATE A XEL ACCOUNT
+### CREATE A XEL ACCOUNT
 In order to have a secure XEL account, you need a strong passphrase. Working With virtual currencies we use the term passphrase instead of password, this describes strong entropy and should be more secure than a regular password. When you are using the official XEL Client, you can use the implemented passphrase creation function, which will give you a passphrase which contains 12 words.
 
-# CREATE YOUR XEL PASSPHRASE
+### CREATE YOUR XEL PASSPHRASE
 You can also create your own passphrase, make sure it contains enough characters and entropy. To generate a passphrase it is recommended to use Software such as KeePass, LastPass, Dashlane or Online Tools as PasswordsGenerator.net or Fourmilab.ch.
 
-# XEL PASSPHRASE GENERATOR
+### XEL PASSPHRASE GENERATOR
 When running XEL on http://localhost:17876 you will get to the client, a click on the link quoting
 
 ```
@@ -29,7 +29,7 @@ will bring you to the passphrase generator. Afterwards (or with your self create
 
 In the next steps, we use your passphrase to sign and broadcast transactions. Your passphrase can also be seen as your private Key.
 
-# CREATE THE TRANSACTION
+### CREATE THE TRANSACTION
 
 With a secure passphrase, we can now look into the code of creating a send-XEL-Transaction. We send out 1 XEL to a recipient, which you see in the code and change it there for another recipient. Insert your passphrase in the following code and run it to create the transaction.
 
@@ -82,7 +82,7 @@ The recipe for a transaction is:
 * deadline measured in minutes, when the transaction expires
 * broadcast false will not broadcast and just create the transaction. Set to true will broadcast the transaction to other peers and will cost you XEL
 
-# BROADCAST TRANSACTION
+### BROADCAST TRANSACTION
 
 Now as we know how to create a sendMoney transaction that has not yet been broadcasted, we can use a script that looks similar to the above one to broadcast the transaction. To make it more understandable I am extending the above script with a button that takes the previously created transaction and transfers it to the network on submitting the button. Effectively when running the script you have your first (small, not yet secure) interactive XEL wallet.
 
